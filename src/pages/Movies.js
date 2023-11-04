@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Movies() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,7 +22,7 @@ function Movies() {
     } catch (error) {
       console.error('Error searching for movies:', error);
     }
-  };
+  }
 
   return (
     <div>
@@ -35,7 +36,9 @@ function Movies() {
       <button onClick={handleSearch}>Search</button>
       <ul>
         {searchResults.map((result) => (
-          <li key={result.id}>{result.title}</li>
+          <li key={result.id}>
+            <Link to={`/movies/${result.id}`}>{result.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
