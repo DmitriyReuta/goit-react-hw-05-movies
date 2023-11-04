@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export function Movies() {
+function Movies() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -41,3 +41,5 @@ export function Movies() {
     </div>
   );
 }
+
+export default Movies;

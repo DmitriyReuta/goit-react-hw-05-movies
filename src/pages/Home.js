@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export function Home() {
+function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
@@ -38,3 +38,5 @@ export function Home() {
     </div>
   );
 }
+
+export default Home;
