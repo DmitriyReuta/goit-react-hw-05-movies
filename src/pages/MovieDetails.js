@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function MovieDetails() {
@@ -67,13 +67,40 @@ function MovieDetails() {
 
   return (
     <div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/movies">Movies</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <h1>{movieDetails.title}</h1>
+      {movieDetails.backdrop_path && (
+        <img
+          src={`https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`}
+          alt={movieDetails.title}
+          width="600px"
+        />
+      )}
       <p>{movieDetails.overview}</p>
 
       <h2>Cast</h2>
       <ul>
         {cast.map((actor) => (
-          <li key={actor.id}>{actor.name}</li>
+          <li key={actor.id}>
+            {actor.profile_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                alt={actor.name}
+              />
+            )}
+            {actor.name}
+          </li>
         ))}
       </ul>
 
