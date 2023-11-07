@@ -41,6 +41,7 @@ function MovieDetails() {
               <Link to="/movies">Movies</Link>
             </li>
           </ul>
+           <button onClick={() => window.history.back()}>Back</button>
         </nav>
       </header>
       <h1>{movieDetails.title}</h1>
@@ -53,11 +54,10 @@ function MovieDetails() {
       )}
       <p>{movieDetails.overview}</p>
 
-      <Cast />
+      <Cast />   
       <Reviews />
       <Outlet />
 
-      <button onClick={() => window.history.back()}>Back</button>
     </div>
   );
 }
